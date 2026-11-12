@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap');
+:root {
+  --f: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --gap: 10px; --r-panel: 26px; --r-card: 22px; --r-img: 16px; --r-btn: 999px; --r-chip: 999px; --r-input: 999px;
+  --r-player: 999px; --player-pad: 10px 26px 10px 14px;
+  --bw: 1px; --bc: color-mix(in srgb, var(--spice-button) 14%, transparent);
+  --panel-bg: linear-gradient(180deg, var(--spice-main-elevated) 0%, var(--spice-main) 60%);
+  --panel-shadow: inset 0 1px 0 color-mix(in srgb, var(--spice-text) 6%, transparent);
+  --card-shadow: none; --card-hover-xform: translateY(-4px);
+  --card-hover-shadow: 0 16px 36px -14px color-mix(in srgb, var(--spice-button) 40%, transparent);
+  --player-bg: color-mix(in srgb, var(--spice-player) 88%, transparent); --player-blur: blur(18px);
+  --player-shadow: 0 0 0 1px color-mix(in srgb, var(--spice-button) 22%, transparent), 0 22px 50px -16px color-mix(in srgb, var(--spice-button) 45%, transparent);
+  --pb-h: 6px; --pb-r: 999px; --pb-track: color-mix(in srgb, var(--spice-text) 12%, transparent);
+  --pb-fill: linear-gradient(90deg, var(--spice-button-active), var(--spice-button)); --knob: none;
+  --play-size: 44px; --play-r: 50%; --play-bg: var(--spice-button); --play-fg: var(--spice-main);
+  --play-shadow: 0 0 22px color-mix(in srgb, var(--spice-button) 55%, transparent);
+}
+:root { --pri-bg: var(--spice-button); --pri-fg: var(--spice-main); --pri-bd: transparent; --player-h: 78px; --player-pad: 0 26px 0 12px; }
+/* ================= SHARED STRUCTURE (identical in every theme) ================= */
+
+/* 1. Re-point Spotify's own design tokens at the theme palette, so nothing falls back to Spotify colours */
+:root, body, .encore-dark-theme, .encore-light-theme, .encore-base-set, .encore-dark-theme .encore-base-set {
+  --background-base: var(--spice-main) !important;
+  --background-highlight: var(--spice-highlight) !important;
+  --background-press: var(--spice-highlight-elevated) !important;
+  --background-elevated-base: var(--spice-main-elevated) !important;
+  --background-elevated-highlight: var(--spice-highlight) !important;
+  --background-elevated-press: var(--spice-highlight-elevated) !important;
+  --background-tinted-base: var(--spice-highlight) !important;
+  --background-tinted-highlight: var(--spice-highlight-elevated) !important;
+  --background-tinted-press: var(--spice-highlight-elevated) !important;
+  --text-base: var(--spice-text) !important;
+  --text-subdued: var(--spice-subtext) !important;
+  --text-bright-accent: var(--spice-button) !important;
+  --text-positive: var(--spice-button) !important;
+  --text-negative: var(--spice-notification-error) !important;
+  --essential-base: var(--spice-text) !important;
+  --essential-subdued: var(--spice-subtext) !important;
+  --essential-bright-accent: var(--spice-button) !important;
+  --essential-positive: var(--spice-button) !important;
+  --essential-negative: var(--spice-notification-error) !important;
+  --decorative-base: var(--spice-text) !important;
+  --decorative-subdued: var(--spice-subtext) !important;
+  --font-family: var(--f) !important;
+}
+.encore-bright-accent-set {
+  --background-base: var(--spice-button) !important;
+  --background-highlight: var(--spice-button-active) !important;
+  --background-press: var(--spice-button-active) !important;
+  --text-base: var(--spice-main) !important;
+  --essential-base: var(--spice-main) !important;
+}
+
+/* 2. Type */
+body, button, input, textarea, select,
+[class*="encore-text"], [class*="Type__TypeElement"], [data-encore-id="text"] {
+  font-family: var(--f) !important;
+}
+::selection { background: var(--spice-button); color: var(--spice-main); }
+
+/* 3. Window frame + panels */
+body { background: var(--spice-sidebar) !important; }
+.Root__top-container {
+  --panel-gap: var(--gap);
+  background: var(--spice-sidebar) !important;
+  padding: var(--gap) !important;
+  gap: var(--gap);
+}
+.Root__main-view, .Root__nav-bar, .Root__right-sidebar {
+  background: var(--panel-bg) !important;
+  border: var(--bw) solid var(--bc) !important;
+  border-radius: var(--r-panel) !important;
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
+}
+.main-view-container, .main-yourLibraryX-libraryContainer, .main-navBar-navBar,
+.main-nowPlayingView-nowPlayingView, .main-buddyFeed-buddyFeedRoot {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: inherit;
+}
+.main-home-homeHeader, .main-entityHeader-background, .main-actionBarBackground-background,
+.main-entityHeader-overlay, .main-trackList-trackListHeaderRow { background: transparent !important; background-image: none !important; }
+
+/* top bar */
+.main-topBar-container, .main-topBar-background, .Root__globalNav, .main-globalNav-container {
+  background: color-mix(in srgb, var(--spice-main) 72%, transparent) !important;
+  backdrop-filter: blur(14px);
+  border: 0 !important;
+}
+.main-globalNav-searchContainer input, [data-encore-id="formInput"], input[data-testid="search-input"], .main-topBar-container input {
+  background: var(--spice-highlight) !important;
+  color: var(--spice-text) !important;
+  border: var(--bw) solid var(--bc) !important;
+  border-radius: var(--r-input) !important;
+  box-shadow: none !important;
+}
+input::placeholder { color: var(--spice-subtext) !important; }
+
+/* 4. Sidebar / library / nav */
+.main-globalNav-navLink, .main-navBar-navBarLink, .main-yourLibraryX-listItem, .main-yourLibraryX-navItem,
+.main-yourLibraryX-libraryItemContainer, [data-encore-id="listRow"] {
+  border-radius: var(--r-btn) !important;
+  color: var(--spice-subtext) !important;
+}
+.main-globalNav-navLink:hover, .main-navBar-navBarLink:hover,
+.main-yourLibraryX-libraryItemContainer:hover, [data-encore-id="listRow"]:hover { background: var(--spice-highlight) !important; color: var(--spice-text) !important; }
+.main-globalNav-navLinkActive, .main-navBar-navBarLinkActive, .main-yourLibraryX-isActive, [aria-current="page"] {
+  color: var(--spice-text) !important;
+}
+.main-yourLibraryX-isActive, .main-yourLibraryX-libraryItemContainer[aria-selected="true"] { background: var(--spice-highlight-elevated) !important; }
+[data-encore-id="chip"], .main-yourLibraryX-filterArea button {
+  background: var(--spice-highlight) !important; color: var(--spice-text) !important;
+  border-radius: var(--r-chip) !important; border: var(--bw) solid var(--bc) !important;
+}
+[data-encore-id="chip"][aria-checked="true"], [data-encore-id="chip"][aria-pressed="true"] {
+  background: var(--spice-button) !important; color: var(--spice-main) !important;
+}
+
+/* 5. Cards, shortcuts, art */
+.main-card-card, [data-encore-id="card"], .main-shelf-shelf a[draggable], .main-gridContainer-gridContainer > * > div {
+  background: var(--spice-card) !important;
+  border-radius: var(--r-card) !important;
+  border: var(--bw) solid var(--bc) !important;
+  box-shadow: var(--card-shadow);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.main-card-card:hover, [data-encore-id="card"]:hover {
+  background: var(--spice-highlight) !important;
+  transform: var(--card-hover-xform);
+  box-shadow: var(--card-hover-shadow);
+}
+.main-cardImage-imageWrapper, .main-cardImage-image, .main-image-image, .cover-art, .cover-art-image,
+[data-testid="shortcut-image"], img[src*="i.scdn.co"] { border-radius: var(--r-img) !important; }
+[data-testid="home-shortcut"], .main-shortcutsSection-shortcut { border-radius: var(--r-card) !important; background: var(--spice-card) !important; border: var(--bw) solid var(--bc) !important; }
+
+/* 6. Buttons. Painted on the OUTER element only; Spotify's inner layers are forced transparent
+      so no stray squares/circles show through. */
+[data-encore-id="buttonPrimary"] {
+  background: var(--pri-bg) !important; color: var(--pri-fg) !important;
+  border: var(--bw) solid var(--pri-bd) !important; border-radius: var(--r-btn) !important;
+}
+[data-encore-id="buttonPrimary"] * { background: transparent !important; color: inherit !important; fill: currentColor; border-color: transparent !important; }
+[data-encore-id="buttonPrimary"]:hover { filter: brightness(1.08); }
+[data-encore-id="buttonSecondary"], .main-buttonOutlined-button {
+  border-radius: var(--r-btn) !important; border: var(--bw) solid var(--bc) !important;
+  background: transparent !important; color: var(--spice-text) !important;
+}
+[data-encore-id="buttonTertiary"] { border-radius: var(--r-btn) !important; background: transparent !important; color: var(--spice-text) !important; border: 0 !important; }
+[data-encore-id="buttonSecondary"]:hover, [data-encore-id="buttonTertiary"]:hover { background: var(--spice-highlight) !important; }
+
+/* Play buttons that float on cards / shortcuts / the banner: invisible until you hover their tile */
+.main-playButton-PlayButton, [data-testid="play-button"] {
+  background: var(--play-bg) !important; color: var(--play-fg) !important;
+  border: var(--bw) solid var(--bc) !important; border-radius: var(--play-r) !important; box-shadow: var(--play-shadow);
+  opacity: 0; transition: opacity .15s ease, transform .15s ease;
+}
+.main-playButton-PlayButton *, [data-testid="play-button"] * { background: transparent !important; color: inherit !important; fill: currentColor; }
+:is(div, a, li):hover > :is(.main-playButton-PlayButton, [data-testid="play-button"]),
+:is(div, a, li):hover > * > :is(.main-playButton-PlayButton, [data-testid="play-button"]),
+:is(.main-card-card, [data-encore-id="card"], [data-testid="home-shortcut"], .main-shortcutsSection-shortcut, .main-trackList-trackListRow, [role="row"]):hover :is(.main-playButton-PlayButton, [data-testid="play-button"]),
+:is(.main-playButton-PlayButton, [data-testid="play-button"]):hover,
+:is(.main-playButton-PlayButton, [data-testid="play-button"]):focus-visible { opacity: 1; }
+
+/* 7. Track lists */
+.main-trackList-trackListRow { border-radius: var(--r-btn) !important; }
+.main-trackList-trackListRow:hover { background: var(--spice-highlight) !important; }
+.main-trackList-selected, .main-trackList-active { background: var(--spice-highlight-elevated) !important; }
+.main-trackList-rowTitle, [data-testid="tracklist-row"] a[href*="/track/"] { color: var(--spice-text) !important; }
+.main-trackList-rowSectionIndex, .main-trackList-rowSectionEnd, .main-type-mesto { color: var(--spice-subtext) !important; }
+.main-trackList-playingIcon { filter: hue-rotate(0deg); }
+
+/* 8. THE PLAYER (the square) - rebuilt from scratch */
+.Root__now-playing-bar { background: transparent !important; padding: 0 !important; height: var(--player-h) !important; min-height: var(--player-h) !important; box-sizing: border-box; }
+.main-nowPlayingBar-container { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; height: 100% !important; min-height: 0 !important; }
+.main-nowPlayingBar-nowPlayingBar {
+  background: var(--player-bg) !important;
+  border: var(--bw) solid var(--bc) !important;
+  border-radius: var(--r-player) !important;
+  box-shadow: var(--player-shadow);
+  backdrop-filter: var(--player-blur, none);
+  padding: var(--player-pad) !important;
+  height: 100% !important; box-sizing: border-box; align-items: center; overflow: hidden;
+}
+.main-nowPlayingBar-left, .main-nowPlayingBar-center, .main-nowPlayingBar-right { background: transparent !important; }
+.main-nowPlayingWidget-nowPlaying img, [data-testid="now-playing-widget"] img, .main-coverSlotCollapsed-container, .main-coverSlotCollapsed-container img {
+  border-radius: var(--r-img) !important; border: var(--bw) solid var(--bc);
+}
+[data-testid="context-item-info-title"], [data-testid="context-item-link"], .main-trackInfo-name a { color: var(--spice-text) !important; font-weight: 700 !important; }
+[data-testid="context-item-info-artist"], .main-trackInfo-artists a { color: var(--spice-subtext) !important; }
+.player-controls__buttons button, .main-nowPlayingBar-extraControls button, .control-button {
+  color: var(--spice-subtext) !important; border-radius: var(--r-btn) !important; transition: color .15s, background .15s, transform .15s;
+}
+.player-controls__buttons button:hover, .main-nowPlayingBar-extraControls button:hover, .control-button:hover {
+  color: var(--spice-text) !important; background: var(--spice-highlight) !important;
+}
+.control-button--active, .control-button[aria-checked="true"], button[aria-checked="true"].control-button { color: var(--spice-button) !important; }
+[data-testid="control-button-playpause"] {
+  background: var(--play-bg) !important; color: var(--play-fg) !important;
+  width: var(--play-size) !important; height: var(--play-size) !important; min-width: var(--play-size); flex: none;
+  border-radius: var(--play-r) !important; box-shadow: var(--play-shadow); border: var(--bw) solid var(--bc) !important;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0 !important;
+}
+[data-testid="control-button-playpause"] * { background: transparent !important; color: inherit !important; fill: currentColor !important; }
+[data-testid="control-button-playpause"]:hover { transform: scale(1.06); }
+
+/* progress + volume */
+.x-progressBar-progressBarBg, .progress-bar {
+  --progress-bar-height: var(--pb-h) !important;
+  background: var(--pb-track) !important; border-radius: var(--pb-r) !important; overflow: hidden;
+}
+.x-progressBar-fillColor, .progress-bar__fill { background: var(--pb-fill) !important; border-radius: var(--pb-r) !important; }
+.x-progressBar-sliderArea { --fg-color: var(--spice-button) !important; }
+.progress-bar__slider, .x-progressBar-sliderArea::after { display: var(--knob, none) !important; background: var(--spice-text) !important; }
+.playback-progressbar-isInteracting .x-progressBar-fillColor, .x-progressBar-progressBarBg:hover .x-progressBar-fillColor { background: var(--pb-fill-hover, var(--pb-fill)) !important; }
+.playback-position, .playback-duration { color: var(--spice-subtext) !important; font-variant-numeric: tabular-nums; }
+
+/* 9. Right panel, queue, lyrics */
+.main-nowPlayingView-contextItemInfo { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 8px 6px !important; }
+[class*="lyrics"], [class*="Lyrics"] {
+  --lyrics-color-active: var(--spice-text) !important; --lyrics-color-inactive: var(--spice-subtext) !important;
+  --lyrics-color-passed: var(--spice-subtext) !important; --lyrics-color-messaging: var(--spice-subtext) !important;
+}
+.main-nowPlayingView-section, .main-nowPlayingView-credits, .main-nowPlayingView-aboutArtist {
+  background: var(--spice-card) !important; border-radius: var(--r-card) !important; border: var(--bw) solid var(--bc);
+}
+.lyrics-lyrics-contentWrapper, .lyrics-lyricsContainer-LyricsBackground { background: var(--spice-card) !important; border-radius: var(--r-card) !important; }
+[data-testid="fullscreen-lyric"] { color: var(--spice-text) !important; font-weight: 800 !important; }
+
+/* 10. Menus, tooltips, modals, toasts, toggles */
+.main-contextMenu-menu, #context-menu, [data-encore-id="popover"], .main-contextMenu-subMenu {
+  background: var(--spice-main-elevated) !important; border: var(--bw) solid var(--bc) !important;
+  border-radius: var(--r-card) !important; box-shadow: var(--card-hover-shadow) !important; color: var(--spice-text) !important;
+}
+.main-contextMenu-menuItemButton { border-radius: var(--r-btn) !important; color: var(--spice-text) !important; }
+.main-contextMenu-menuItemButton:hover, .main-contextMenu-menuItemButton:focus { background: var(--spice-highlight) !important; }
+[role="tooltip"], .main-tooltip-tooltip, .encore-inverted-light-set {
+  --background-base: var(--spice-text) !important; --text-base: var(--spice-main) !important;
+  background: var(--spice-text) !important; color: var(--spice-main) !important; border-radius: var(--r-btn) !important;
+}
+.GenericModal > div, .main-embedWidgetGenerator-container, [role="dialog"] > div {
+  background: var(--spice-main-elevated) !important; border: var(--bw) solid var(--bc) !important; border-radius: var(--r-panel) !important;
+}
+.GenericModal { background: color-mix(in srgb, var(--spice-sidebar) 70%, transparent) !important; backdrop-filter: blur(6px); }
+.main-notificationBubble-container, [data-testid="toast"] { background: var(--spice-notification) !important; color: var(--spice-main) !important; border-radius: var(--r-btn) !important; }
+input[type="checkbox"], [role="switch"] { accent-color: var(--spice-button); }
+[role="switch"][aria-checked="true"], .x-toggle-indicatorWrapper input:checked + span { background: var(--spice-button) !important; }
+
+/* 11. Scrollbars (both native and Spotify's overlay ones) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--spice-button-disabled); border-radius: var(--pb-r); border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--spice-button); background-clip: padding-box; }
+.os-scrollbar-handle { background: var(--spice-button-disabled) !important; border-radius: var(--pb-r) !important; }
+.os-scrollbar-handle:hover { background: var(--spice-button) !important; }
+
+/* 12. Keyboard focus stays visible */
+:focus-visible { outline: 2px solid var(--spice-button) !important; outline-offset: 2px; }
+
+/* 13. Spotify's own green + blue, wherever it is still hard-coded */
+[style*="#1ed760"], [style*="#1db954"], [style*="rgb(30, 215, 96)"] { color: var(--spice-button) !important; }
+a { color: inherit; }
+.main-type-bass, .main-type-ballad, .main-type-balladBold { color: inherit; }
+
+/* 14. No video/announcement banner on Home (theme.js also removes it, this is the CSS-only fallback) */
+.main-home-content section:has(video), [data-testid="home-hero"], [data-testid="hero"] { display: none !important; }
+/* Tidepool extras: floating pill, ripple-ish glow on the active row */
+.Root__now-playing-bar { padding: 0 8% !important; }
+.main-trackList-active { box-shadow: inset 3px 0 0 var(--spice-button); }
+.main-cardImage-imageWrapper { box-shadow: 0 10px 24px -12px rgba(0,0,0,.6); }
+.main-entityHeader-title, h1 { letter-spacing: -0.03em; font-weight: 800 !important; }

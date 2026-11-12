@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Tidepool",
+    "description": "Deep teal pill-shaped player with a glowing edge. Schemes: ink, reef.",
+    "preview": "Tidepool/screenshot.png",
+    "usercss": "Tidepool/user.css",
+    "schemes": "Tidepool/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "dark",
+      "rounded",
+      "teal"
+    ]
+  },
+  {
+    "name": "Riso",
+    "description": "Print-shop look: halftone paper, hard offset shadows. Schemes: paper, blueprint.",
+    "preview": "Riso/screenshot.png",
+    "usercss": "Riso/user.css",
+    "schemes": "Riso/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "light",
+      "brutalist"
+    ]
+  },
+  {
+    "name": "Blueprint",
+    "description": "Navy and yellow blueprint look with thick-bordered cards.",
+    "preview": "Blueprint/screenshot.png",
+    "usercss": "Blueprint/user.css",
+    "schemes": "Blueprint/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "dark",
+      "brutalist"
+    ]
+  },
+  {
+    "name": "Petal",
+    "description": "Light lavender with a frosted player and pink-purple gradients.",
+    "preview": "Petal/screenshot.png",
+    "usercss": "Petal/user.css",
+    "schemes": "Petal/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "light",
+      "rounded",
+      "glass"
+    ]
+  },
+  {
+    "name": "Terminal",
+    "description": "CRT monospace with scanlines and a segmented progress bar. Schemes: amber, phosphor.",
+    "preview": "Terminal/screenshot.png",
+    "usercss": "Terminal/user.css",
+    "schemes": "Terminal/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "dark",
+      "monospace",
+      "retro"
+    ]
+  },
+  {
+    "name": "Orchid",
+    "description": "Frosted-glass player, big radii, plum gradients. Schemes: dusk, petal.",
+    "preview": "Orchid/screenshot.png",
+    "usercss": "Orchid/user.css",
+    "schemes": "Orchid/color.ini",
+    "readme": "README.md",
+    "authors": [
+      {
+        "name": "flasnutt",
+        "url": "https://github.com/flasnutt"
+      }
+    ],
+    "tags": [
+      "dark",
+      "rounded",
+      "glass"
+    ]
+  }
+]
